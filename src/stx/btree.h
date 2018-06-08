@@ -4277,8 +4277,13 @@ namespace stx
 
         /// writes all modified pages to storage and frees all surface nodes
         void reduce_use() {
+            stx::storage::allocation::print_allocations();
+            inf_print("reducing b-tree use");
+
             flush_buffers(true);
             free_interiors();
+            inf_print("complete reducing b-tree use");
+            stx::storage::allocation::print_allocations();
             //free_surfaces();
         }
 
@@ -4891,7 +4896,7 @@ namespace stx
     }
 
     struct cache_data {
-        cache_data() {}
+        cache_data():key(nullptr),value(nullptr),node(nullptr) {}
 
         cache_data(const cache_data &right)
         :   node(right.node)
@@ -4921,12 +4926,12 @@ namespace stx
     _NodeHash           key_lookup;
     /// add a hashed key to the lookup table
     void add_hash(surface_node* node, int at){
-
+        data_type &data = node->get_value(at);
         key_type& key = node->get_key(at);
         size_t h = stx::btree_hash<key_type>()(key);
         if(h){
 
-            key_lookup[h] = cache_data(node,&key,&node->get_value(at));
+            key_lookup[h] = cache_data(node,&key,&data);
         }
     }
 
