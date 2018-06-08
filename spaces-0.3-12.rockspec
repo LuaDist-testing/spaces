@@ -1,9 +1,17 @@
+-- This file was automatically generated for the LuaDist project.
+
 package = "spaces"
 version = "0.3-12"
+-- LuaDist source
 source = {
-   url = "git://github.com/tjizep/libspaces.git",
-   tag = "v0.3.1"
+  tag = "0.3-12",
+  url = "git://github.com/LuaDist-testing/spaces.git"
 }
+-- Original source
+-- source = {
+--    url = "git://github.com/tjizep/libspaces.git",
+--    tag = "v0.3.1"
+-- }
 description = {
    summary = "Lib(eration) spaces is a library and server for transactional graph and key value storage/persistence. ",
    detailed = "Lib(eration) spaces is a library and server for transactional graph and key value storage/persistence. ",
