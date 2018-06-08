@@ -1,10 +1,10 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "spaces"
-version = "0.3-9"
+version = "0.3-11"
 -- LuaDist source
 source = {
-  tag = "0.3-9",
+  tag = "0.3-11",
   url = "git://github.com/LuaDist-testing/spaces.git"
 }
 -- Original source
@@ -26,8 +26,8 @@ build = {
      LUA="$(LUA)",
      LUA_INCDIR="$(LUA_INCDIR)",
      LUA_LIBDIR="$(LUA_LIBDIR)",
-     LUADIR="$(LUADIR)",
      INST_LIBDIR="$(LIBDIR)",
+     CMAKE_BUILD_TYPE="Release",
      CMAKE_INSTALL_PREFIX=""
    }
 
